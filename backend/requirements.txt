@@ -1,0 +1,4 @@
+openai
+deta
+fastapi
+Jinja2
