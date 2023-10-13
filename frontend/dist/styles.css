@@ -1,0 +1,379 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  /*text-align: center;*/
+  height: 100%;
+  width: 100%;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #000000;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;
+  justify-content: center;*/
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spaceShuttle
+{
+  color: rgb(255, 255, 255);
+  animation: rocketAnimation 5s linear infinite;
+  position: absolute;
+  left: 0px;
+  top:0px;
+  bottom:100%
+}
+
+.spaceShuttle:hover
+{
+  color: yellow;
+  rotate: 90deg;
+  margin-top: 5vh;
+  margin-left: 10vw
+}
+
+.nebulae
+{
+
+  color: red;
+}
+
+.anime
+{
+  background-color: white;
+}
+
+@keyframes rocketAnimation {
+  to {
+    left: 90%;
+    top:90%;
+    transform:rotate(90deg);
+  } /* Final position (off-screen to the right) */
+  
+    
+}
+
+.movNebu
+{
+  display: inline-block;
+  width:100%;
+}
+
+.snowflake {
+  --size: 0.5vw;
+  width: var(--size);
+  height: var(--size);
+  /*color:white;*/
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: -5vh;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+ /* overflow: hidden;*/
+  /*background: linear-gradient(#123, #111);*/
+  background: linear-gradient(rgb(0, 0, 0), #2b2a2a);
+}
+
+/*
+.snowflake {
+  --size: 1vw;
+  width: var(--size);
+  height: var(--size);
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: -5vh;
+}
+*/
+
+@keyframes snowfall {
+  0% {
+    transform: translate3d(var(--left-ini), 0, 0);
+  }
+  100% {
+    transform: translate3d(var(--left-end), 110vh, 0);
+  }
+}
+
+
+
+/* added small blur every 6 snowflakes*/
+.snowflake:nth-child(6n) {
+  filter: blur(1px);
+}
+
+.nickbox
+{
+  
+  height: 7%;
+  background-color: white;
+  /*position: absolute;
+  left: 30%;
+  top:30%;*/
+  animation: walkaway 5s;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  padding: 10px;
+  width: 80%;
+}
+
+.codebox
+{
+  
+  height: 7%;
+  background-color: white;
+  animation: walkaway 5s;
+  margin-top: 1%;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  padding: 10px;
+  width: 80%;
+}
+
+.signupbtn
+{
+  width: 60%;
+  animation: walkaway 5s;
+  margin-top: 1%;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  height: 7%;
+}
+
+@media only screen and (orientation: landscape) {
+.login_container
+{
+  width: 40%;
+  height: 50%;
+  left: 30%;
+  top:10%;
+  position:absolute;
+}
+}
+
+@media only screen and (orientation: portrait) {
+  .login_container
+  {
+    width: 80%;
+    height: 80%;
+    left: 18%;
+    top:10%;
+    position: absolute;
+  }
+  }
+
+.login_ctn
+{
+  padding-left: 20%;
+}
+
+.wrapper {
+  height: 5vh;
+  /*This part is important for centering*/
+  display: grid;
+  place-items: left;
+  margin-top: 1%;
+  overflow-wrap: anywhere;
+  
+}
+
+@media screen and (orientation:landscape) {
+  
+.typing-demo {
+  color:whitesmoke;
+  width: 30%;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+}
+
+@media screen and (orientation:portrait) {
+  
+  .typing-demo {
+    color:whitesmoke;
+    width: 100%;
+    height: 90%;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 2em;
+   
+    display: block;
+
+  }
+  }
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+@keyframes walkaway {
+  from {
+    width: 0;
+    height:0;
+  }
+}
+.memheaderbox
+{
+  
+  height: 7%;
+  background-color: white;
+  font-family:cursive;
+  font-weight:bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  /*position: absolute;
+  left: 30%;
+  top:30%;*/
+  animation: walkaway 5s;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  width: 80%;
+  
+}
+
+.membox
+{
+  
+  height: 25%;
+  background-color: white;
+  animation: walkaway 5s;
+  margin-top: 1%;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  padding: 10px;
+  width: 80%;
+}
+
+.addmembtn
+{
+  width: 60%;
+  animation: walkaway 5s;
+  margin-top: 1%;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  height: 7%;
+}
+
+.addmem_ctn
+{
+  padding-left: 20%;
+}
+
+.tagsbox
+{
+  
+  height: 7%;
+  background-color: white;
+  font-weight:bold;
+  /*position: absolute;
+  left: 30%;
+  top:30%;*/
+  animation: walkaway 5s;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  width: 80%;
+  margin-bottom: 5%;
+  content: "#";
+}
+
+.memories_container
+{
+    background-color: #6750A4;
+    width: 20%;
+    height: 80%;
+    display: block;
+}
+
+.searchicon
+{
+    color:white;
+    margin-left: 50%;
+}
+
+.adderbox
+{
+    width: 100%;
+    height:100%;
+}
+
+.searchbox
+{
+    width: 100%;
+    height:100%;
+}
+
+.dnickbox
+{
+  
+  height: 7%;
+  background-color: white;
+  /*position: absolute;
+  left: 30%;
+  top:30%;*/
+  animation: walkaway 5s;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  padding: 10px;
+  width: 30%;
+}

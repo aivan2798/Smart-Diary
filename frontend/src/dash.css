@@ -1,0 +1,118 @@
+.memheaderbox
+{
+  
+  height: 7%;
+  background-color: white;
+  font-family:cursive;
+  font-weight:bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  /*position: absolute;
+  left: 30%;
+  top:30%;
+  animation: walkaway 5s;*/
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  width: 80%;
+  
+}
+
+.membox
+{
+  
+  height: 25%;
+  background-color: white;
+  
+  margin-top: 1%;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  padding: 10px;
+  width: 80%;
+}
+
+.addmembtn
+{
+  width: 60%;
+  margin-top: 1%;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  height: 7%;
+}
+
+.addmem_ctn
+{
+  padding-left: 20%;
+}
+
+.tagsbox
+{
+  
+  height: 7%;
+  background-color: white;
+  font-weight:bold;
+  /*position: absolute;
+  left: 30%;
+  top:30%;*/
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  width: 80%;
+  margin-bottom: 5%;
+  content: "#";
+}
+
+.memories_container
+{
+    background-color: #6750A4;
+    width: 20%;
+    height: 80%;
+    display: block;
+}
+
+.searchicon
+{
+    color:white;
+    margin-left: 50%;
+}
+
+.adderbox
+{
+    width: 100%;
+    height:100%;
+}
+
+.searchbox
+{
+    width: 100%;
+    height:100%;
+}
+
+.dnickbox
+{
+  
+  height: 7%;
+  background-color: white;
+  /*position: absolute;
+  left: 30%;
+  top:30%;*/
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  padding: 10px;
+  width: 30%;
+}
+
+.log_msg
+{
+  color:white;
+}
+
+.answers_box
+{
+  color: #6750A4;
+  /*animation: walkaway 5s;*/
+  /*width: 100%;*/
+}
+
+.loaderIcon_box
+{
+  height:5%;
+}
