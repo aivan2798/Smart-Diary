@@ -87,12 +87,21 @@
 .snowflake {
   --size: 0.5vw;
   width: var(--size);
-  height: var(--size);
+  height: 7px;
+  /*var(--size);*/
   /*color:white;*/
-  background: white;
+  background: rgb(61, 58, 58);
   border-radius: 50%;
-  position: absolute;
+  position:absolute;
   top: -5vh;
+  rotate: 20deg;
+}
+
+.header_tag {
+  color: white;
+  height: 20%;
+  
+  text-align: center;
 }
 
 html, body {
@@ -120,10 +129,10 @@ html, body {
 
 @keyframes snowfall {
   0% {
-    transform: translate3d(var(--left-ini), 0, 0);
+    transform: translate3d(var(--left-ini), 10vh, 0);
   }
   100% {
-    transform: translate3d(var(--left-end), 110vh, 0);
+    transform: translate3d(var(--left-end), 20vh, 0);
   }
 }
 

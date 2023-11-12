@@ -34,7 +34,7 @@ async function postLoginFx(data,setData)
     const responseData = await response.json();
     const datum = responseData["content"];
     const rdatum = {"loader_on":false,"show_ans":false,"content":{"login":true,"msg":datum,"meta":{}}};
-    alert(rdatum);
+    
     setData(rdatum); // Store response data in state or do something with it
     
   } catch (error) {
@@ -179,6 +179,16 @@ function LoginSheet(answers_prop)
   }
 }
 
+function Heada()
+{
+  return (
+    <div className='header_tag'>
+      <Snowflakes/>
+      <b>OPEN YO SMART DIARY</b>
+    </div>
+  );
+}
+
 function XApp() {
   
   //<RocketLaunchIcon className="spaceShuttle"/>
@@ -230,8 +240,9 @@ function XApp() {
         </div>
       </div>
       <br/>
-      
+      <Heada/>
       <div className="login_container">
+      
       <LoginSheet answers={answer_data}/>
       <br/><br/>
       <input className="nickbox" ref={nickname_ref} type="text" placeholder="input your unique name"/><br/>
@@ -239,10 +250,11 @@ function XApp() {
       <div className="login_ctn"><Button className="signupbtn" color="primary" variant="filled" onClick={loginFx}>HAIL ABOARD</Button></div>
       </div>
 
-      <Snowflakes/>
+      
       
     </div>
   );
+   //<Snowflakes/>
   }
   const user_data = answer_data["content"]["meta"];
   return(<Dash usr={user_data}/>);
