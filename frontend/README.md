@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+# Smart-Diary
+This is the GUI for the smar
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# Smart-Diary-UI
+This is the front end for the smart diary web app
+>>>>>>> 9d47673dc5627e7e8c8ef3f72a5d4d405455dd73
