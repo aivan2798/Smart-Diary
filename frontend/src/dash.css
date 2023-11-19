@@ -1,7 +1,7 @@
 .memheaderbox
 {
   
-  height: 7%;
+  
   background-color: white;
   font-family:cursive;
   font-weight:bold;
@@ -14,13 +14,15 @@
   border: 1px solid #ccc;
   border-radius: 20px; /* Adjust the value to control the amount of rounding */
   width: 80%;
+  height:30px;
+  padding: 10px;
   
 }
 
 .membox
 {
   
-  height: 25%;
+  height: 60%;
   background-color: white;
   
   margin-top: 1%;
@@ -47,7 +49,8 @@
 .tagsbox
 {
   
-  height: 7%;
+  height:30px;
+  padding: 10px;
   background-color: white;
   font-weight:bold;
   /*position: absolute;
@@ -77,8 +80,12 @@
 .adderbox
 {
     width: 100%;
-    height:100%;
+    height:90%;
+    margin: auto;
+    padding-top: 5%;
+    padding-left: 10%;
 }
+
 
 .searchbox
 {
@@ -115,4 +122,27 @@
 .loaderIcon_box
 {
   height:5%;
+}
+
+@media screen and (orientation: portrait)
+{
+.memory_table{
+  display: grid;
+  place-items: center;
+  overflow-wrap: anywhere;
+  grid-template-columns: 100%;
+  justify-content: center;
+  height:100%;
+}
+}
+@media screen and (orientation: landscape)
+{
+.memory_table{
+  display: grid;
+  place-items: center;
+  overflow-wrap: anywhere;
+  grid-template-columns: 50%;
+  justify-content: center;
+
+}
 }

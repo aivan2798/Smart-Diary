@@ -2,6 +2,7 @@
   /*text-align: center;*/
   height: 100%;
   width: 100%;
+  
 }
 
 .App-logo {
@@ -109,10 +110,10 @@ html, body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  position: relative;
+  
  /* overflow: hidden;*/
   /*background: linear-gradient(#123, #111);*/
-  background: linear-gradient(rgb(0, 0, 0), #2b2a2a);
+  background: linear-gradient(rgb(0, 0, 0) 0%, rgb(12, 50, 59) 50%, #2b2a2a 100%);
 }
 
 /*
@@ -146,7 +147,7 @@ html, body {
 .nickbox
 {
   
-  height: 7%;
+  height: 30px;
   background-color: white;
   /*position: absolute;
   left: 30%;
@@ -161,7 +162,7 @@ html, body {
 .codebox
 {
   
-  height: 7%;
+  height: 30px;
   background-color: white;
   
   margin-top: 1%;
@@ -182,24 +183,41 @@ html, body {
 }
 
 @media only screen and (orientation: landscape) {
+/*
 .login_container
 {
-  width: 40%;
-  height: 50%;
+  width: 90%;
   left: 30%;
   top:10%;
-  position:absolute;
+  position: fixed;
 }
+*/
+.login_container
+  {
+    width: 90%;
+    margin: auto;
+    padding-top: 5%;
+    padding-left: 10%;
+    
+  }
 }
 
 @media only screen and (orientation: portrait) {
+  /*
   .login_container
   {
-    width: 80%;
-    height: 80%;
+    width: 90%;
     left: 18%;
     top:10%;
-    position: absolute;
+    position: fixed;
+  }
+  */
+  .login_container
+  {
+    width: 90%;
+    margin: auto;
+    padding-top: 10%;
+    padding-left: 10%;
   }
   }
 
@@ -208,8 +226,30 @@ html, body {
   padding-left: 20%;
 }
 
+@media screen and (orientation: portrait)
+{
+.login_table{
+  display: grid;
+  place-items: center;
+  overflow-wrap: anywhere;
+  grid-template-columns: 100%;
+  justify-content: center;
+}
+}
+@media screen and (orientation: landscape)
+{
+.login_table{
+  display: grid;
+  place-items: center;
+  overflow-wrap: anywhere;
+  grid-template-columns: 50%;
+  justify-content: center;
+
+}
+}
+
 .wrapper {
-  height: 5vh;
+  height: 8vh;
   /*This part is important for centering*/
   display: grid;
   place-items: left;
@@ -222,8 +262,9 @@ html, body {
   
 .typing-demo {
   color:whitesmoke;
-  width: 30%;
-  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  width: 80%;
+  height: 100%;
+  animation: typing 3s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;

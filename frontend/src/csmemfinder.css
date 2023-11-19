@@ -1,0 +1,108 @@
+.mem_recall{
+    color:azure;
+    width:100%;
+}
+
+.mem_in_box {
+    bottom: 50px;
+    
+    height: 50px;
+    width: 100%;
+}
+
+.mem_outs
+{
+    height: 60vh;
+   /* background-color: aqua;*/
+    overflow-y: auto;
+    width: 100%;
+}
+@media screen and (orientation: portrait)
+{
+.mem_input{
+    
+    height: 100%;
+    border-radius: 20px;
+    padding: 20px;
+    /*margin-top: 10px;*/
+    width: 70vw;
+    letter-spacing: 0.2em;
+    background-color: rgb(9,39,46);
+    color: aliceblue;
+    box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);
+}
+}
+
+@media screen and (orientation: landscape)
+{
+.mem_input{
+    width: 500px;
+    height: 100%;
+    background-color: rgb(9,39,46);
+    border-radius: 20px;
+    padding: 20px;
+    /*margin-top: 10px;*/
+    letter-spacing: 0.2em;
+    color: aliceblue;
+    box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);
+}
+}
+
+.xmembox{
+    color: white;
+    width: 80%;
+    text-align: right;
+    border:1px solid rgb(9,39,46);
+    height:auto;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 40px;
+    padding: 20px;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);
+}
+
+.findMemButton {
+    /*background-color: rgb(31, 31, 87);*/
+    background-color: rgb(9,39,46);
+    /* rgb(13, 13, 134);*/
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid grey;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: solid;
+    font-weight: bold;
+    color:blanchedalmond;
+    /* rgb(48, 48, 210);*/
+    box-shadow: 0px 0px 10px 2px rgb(42, 3, 3);
+
+}
+
+.findMemButton:hover{
+    border:2px px solid black;
+    /*5px solid rgb(13, 13, 134);*/
+    /*rgb(13, 13, 134);*/
+    
+    background-color: rgb(9,39,46);
+    /*rgb(48, 48, 210);*/
+    box-shadow: 0px 0px 10px 2px black; 
+ }
+
+ .newtagsbox
+{
+  
+  padding: 5px;
+  background-color: white;
+  font-weight:bold;
+  /*position: absolute;
+  left: 30%;
+  top:30%;*/
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to control the amount of rounding */
+  width: 90%;
+  content: "#";
+}

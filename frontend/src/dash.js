@@ -103,7 +103,8 @@ function AnswerSheet(answers_prop)
 export default function Dash(user_data) {
 
     const usr = user_data.usr;
-    const nickname = usr["name"];
+    const nickname = "aivo";
+    //usr["name"];
 
     const nickRef = useRef();
     const titleRef = useRef();
@@ -213,31 +214,33 @@ export default function Dash(user_data) {
             HELLO ASTRO {nickname} <br/>
           </div>
         </div>
+        
+        
         <br/>
         
-        <div className="login_container">
-        <Button className="searchbutton" color="primary" variant="filled"  onClick={searchFxx}  style={{display: showSearch ? 'none': 'block' }}>search memory<SearchIcon className="searchicon"/></Button>
-        <Button className="addbutton" onClick={addFxx} color="primary" variant="filled" style={{display: showSearch ? 'block': 'none' }}>ADD MEMORY<ControlPointIcon className="searchicon" /></Button>
-        <br/>
-        <AnswerSheet answers={answer_data}/><br/><br/>
-        <div className = 'searchbox' style={{display: showSearch ? 'block': 'none' }}>
+        
+        <div className="memory_table">
+        
+            <Button className="searchbutton" color="primary" variant="filled"  onClick={searchFxx}  style={{display: showSearch ? 'none': 'block' }}>search memory<SearchIcon className="searchicon"/></Button>
+            <Button className="addbutton" onClick={addFxx} color="primary" variant="filled" style={{display: showSearch ? 'block': 'none' }}>ADD MEMORY<ControlPointIcon className="searchicon" /></Button>
+            <br/>
+            <AnswerSheet answers={answer_data}/><br/><br/>
+            <div className = 'searchbox' style={{display: showSearch ? 'block': 'none' }}>
+                <textarea className="membox" ref={qtnRef} type="text" placeholder="What do you recall about the memory !!!!"></textarea><br/><br/>
+                <input className="tagsbox" ref={tagsRef} type="text" placeholder="add any tags here you recall e.g #beautifulangels"/><br/>
+                <div className="addmem_ctn"><Button className="addmembtn" color="primary" variant="filled" onClick={buffFxx}>FIND MEMORY &nbsp;<SearchIcon/></Button></div>
+            </div>
+
+            <div className='adderbox' style={{display: showSearch ? 'none': 'block' }}>
             
-            <textarea className="membox" ref={qtnRef} type="text" placeholder="What do you recall about the memory !!!!"></textarea><br/><br/>
-            <input className="tagsbox" ref={tagsRef} type="text" placeholder="add any tags here you recall e.g #beautifulangels"/><br/>
-            <div className="addmem_ctn"><Button className="addmembtn" color="primary" variant="filled" onClick={buffFxx}>FIND MEMORY &nbsp;<SearchIcon/></Button></div>
-        </div>
-        <div className='adderbox' style={{display: showSearch ? 'none': 'block' }}>
-            
-            <input className="memheaderbox" type="text" placeholder="Memory Title" ref={titleRef}/><br/>
-            <textarea className="membox" type="text" placeholder="Whats the memory !!!!" ref={dataRef}></textarea><br/><br/>
-            <input className="tagsbox" type="text" placeholder="add any tags here e.g #beautifulangels" ref={tagsRef}/><br/>
-            <div className="addmem_ctn"><Button className="addmembtn" color="primary" variant="filled"  onClick={saveFxx}>SAVE MEMORY &nbsp;<ControlPointIcon/></Button></div>
+                  <input className="memheaderbox" type="text" placeholder="Memory Title" ref={titleRef}/>
+                  <textarea className="membox" type="text" placeholder="Whats the memory !!!!" ref={dataRef}></textarea>
+                  <input className="tagsbox" type="text" placeholder="add any tags here e.g #beautifulangels" ref={tagsRef}/>
+                  <div className="addmem_ctn"><Button className="addmembtn" color="primary" variant="filled"  onClick={saveFxx}>SAVE MEMORY &nbsp;<ControlPointIcon/></Button></div>
         </div>
         </div>
-  
-        <XSnowflakes/>
-        Yes
       </div>
+    
     );
     
   }

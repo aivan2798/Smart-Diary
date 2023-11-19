@@ -11,6 +11,8 @@ import Dash from './dash';
 import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ReactLoading from 'react-loading'
+
+import Xdash from './xdash'
 //import ReactLoading from "https://cdn.skypack.dev/react-loading@2.0.3";
 //import { Client } from 'appwrite';
 //const xurl = "http://192.168.1.151:8008/"
@@ -183,7 +185,7 @@ function Heada()
 {
   return (
     <div className='header_tag'>
-      <Snowflakes/>
+    
       <b>OPEN YO SMART DIARY</b>
     </div>
   );
@@ -224,7 +226,7 @@ function XApp() {
   };
 
   const enavigate = answer_data["content"]["login"];
- 
+ /*
   if(!enavigate)
   {
   
@@ -232,32 +234,41 @@ function XApp() {
 
 
     <div className="App">
-
-     
       <div className="wrapper">
         <div className="typing-demo">
           Welcome to the Memory Lane ........
         </div>
       </div>
-      <br/>
-      <Heada/>
-      <div className="login_container">
+     <div className="login_table">
+    
       
-      <LoginSheet answers={answer_data}/>
-      <br/><br/>
-      <input className="nickbox" ref={nickname_ref} type="text" placeholder="input your unique name"/><br/>
-      <input className="codebox" ref={password_ref} type="password" placeholder="input your secret passphrase"/><br/><br/>
-      <div className="login_ctn"><Button className="signupbtn" color="primary" variant="filled" onClick={loginFx}>HAIL ABOARD</Button></div>
+  
+      <Heada/>
+      
+      
+        <div className="login_container">
+            <LoginSheet answers={answer_data}/>
+            <br/><br/>
+            <input className="nickbox" ref={nickname_ref} type="text" placeholder="input your unique name"/><br/>
+            <input className="codebox" ref={password_ref} type="password" placeholder="input your secret passphrase"/><br/><br/>
+            <div className="login_ctn"><Button className="signupbtn" color="primary" variant="filled" onClick={loginFx}>HAIL ABOARD</Button></div>
       </div>
+      
 
       
       
+      </div>
     </div>
   );
+
    //<Snowflakes/>
   }
+  */
+  
+
   const user_data = answer_data["content"]["meta"];
-  return(<Dash usr={user_data}/>);
+  //return(<Dash usr={user_data}/>);
+  return (<Xdash/>);
 }
 
 
