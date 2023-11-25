@@ -1,12 +1,14 @@
 import React, {useState} from "react"
 import './xdash.css'
 import SaveMemUI from "./guis";
-
+import Cookies from 'universal-cookie';
 import FindMemUI from "./memfinder";
+import MainBoard from "./welcome";
 import {BrowserRouter,Route,Routes,Link, NavLink, Outlet} from "react-router-dom";
 
 
 let active_set;
+//let active_token = '';
 //let is_home;
 function SaveMemPB(btn_props)
 {
@@ -144,7 +146,7 @@ function Layout()
             <thead></thead>
             <tr>
               <td>
-                <NavLink to="/"><SaveMemPB text="SAVE MEMORY" /></NavLink>
+                <NavLink to="savemem"><SaveMemPB text="SAVE MEMORY" /></NavLink>
               </td>
               <td>
                 <NavLink to="findmem"><FindMemPB text="FIND MEMORY"/></NavLink>
@@ -161,14 +163,20 @@ function Layout()
 }
 
 
-export default function Xdash()
+export default function Xdash(xuser_data)
 {
 
+    const active_json = xuser_data.usr;
+    const active_token = new Cookies().get("memory_token");
+    //active_json["memory_token"];
+   // alert(active_token);
+    
     return(
             <div>
             <Routes>
                 <Route path ="/" element={<Layout/>}>
-                   <Route index element={<SaveMemUI/>}/>
+                   <Route index element={<MainBoard/>}/>
+                   <Route path="savemem" element={<SaveMemUI/>}/>
                    <Route path="findmem" element={<FindMemUI/>}/>
                 </Route>
             </Routes>
