@@ -9,8 +9,8 @@ import Cookies from 'universal-cookie';
 
 async function xpostData(data,setData)
 {
- // const xurl = "/"
-  const xurl = "http://192.168.1.151:8008/";
+  const xurl = "/";
+  //const xurl = "http://192.168.1.151:8008/";
   
   const requestOptions = {
     method: 'POST',

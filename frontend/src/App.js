@@ -17,8 +17,8 @@ import Cookies from 'universal-cookie';
 import Xdash from './xdash'
 //import ReactLoading from "https://cdn.skypack.dev/react-loading@2.0.3";
 //import { Client } from 'appwrite';
-const xurl = "http://192.168.1.151:8008/"
-//const xurl = "/"
+//const xurl = "http://192.168.1.151:8008/"
+const xurl = "/";
 async function postLoginFx(data,setData)
 {
   const requestOptions = {
