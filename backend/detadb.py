@@ -1,14 +1,14 @@
-from deta import Base
-#from dotenv import load_dotenv
+from deta import Base,Deta
+from dotenv import load_dotenv
 import os,uuid
 from datetime import date,datetime
-#load_dotenv()
-deta_key = os.getenv("deta_key")
+load_dotenv()
+deta_key = os.getenv("DETA_KEY")
 
-#base_man = Deta(deta_key)
+base_man = Deta(deta_key)
 
-sd_db = Base("diary_users")
-#base_man.Base("diary_users")
+#sd_db = Base("diary_users")
+sd_db=base_man.Base("diary_users")
 
 #sd_db.put(
 #init_ob = {"token":"algo","secret":"thisisme","memories":[]}
@@ -21,6 +21,14 @@ sd_db = Base("diary_users")
 def authUser(nickname,secret):
 	fetch_res = sd_db.fetch({"key":nickname,"secret":secret})
 	return fetch_res
+
+def authToken(token_str):
+	tokman = getTokenUsr(token_str)
+	if tokman.count>0:
+		return True
+	else:
+		return False
+
 
 def getTokenUsr(token):
 	fetch_res = sd_db.fetch({"token":token})

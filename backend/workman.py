@@ -1,6 +1,7 @@
 from detadb import *
 from datetime import date,datetime
 import openai
+import langman
 #from dotenv import load_dotenv
 
 #load_dotenv()
@@ -43,7 +44,7 @@ def awgetmems(cookie,mem_data):
     return memories
 
 
-def gptEat(cookie,json_std):
+def xgptEat(cookie,json_std):
     mems = awgetmems(cookie,json_std)
     my_gpt_msg = [
     {
@@ -66,6 +67,19 @@ def gptEat(cookie,json_std):
     #print(my_gpt_msg)
     return my_gpt_msg
 
+def gptEat(cookie,json_std):
+    mems = awgetmems(cookie,json_std)
+    
+    qtn = json_std["query"]
+  
+    adate = date.today()
+    time = datetime.now().strftime("%H:%M:%S")
+
+    memory = f"{qtn} ref_date:'{adate}' ref_time:'{time}'"
+    my_gpt_msg = langman.total_recall(mems,qtn)
+    #print(my_gpt_msg)
+    return my_gpt_msg
+
 
 def awcreatedb(json_std):
     name = json_std["nickname"]
@@ -74,7 +88,7 @@ def awcreatedb(json_std):
     token = mkUser(name,secret)
     return token
 #int(os.environ.get("OPENAI_MAX_TOKENS", "512"))
-def handlePrompt(token,prompt):
+def xhandlePrompt(token,prompt):
 		print(prompt)
 	#try:
 		response = openai.ChatCompletion.create(
@@ -95,3 +109,6 @@ def handlePrompt(token,prompt):
 	#	print(ex)
 		json_error = {"ok": False, "content": "Failed to query model."}
 		return json_error
+
+def handlePrompt(token,prompt):
+  return langman.askMem(prompt)
