@@ -10,17 +10,20 @@ import SearchIcon from '@mui/icons-material/Search';
 import Dash from './dash';
 import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ReactLoading from 'react-loading'
+import ReactLoading from 'react-loading';
+
+import Cookies from 'universal-cookie';
 
 import Xdash from './xdash'
 //import ReactLoading from "https://cdn.skypack.dev/react-loading@2.0.3";
 //import { Client } from 'appwrite';
-//const xurl = "http://192.168.1.151:8008/"
-const xurl = "/"
+const xurl = "http://192.168.1.151:8008/"
+//const xurl = "/"
 async function postLoginFx(data,setData)
 {
   const requestOptions = {
     method: 'POST',
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -34,11 +37,14 @@ async function postLoginFx(data,setData)
   try {
     const response = await fetch(url, requestOptions);
     const responseData = await response.json();
-    const datum = responseData["content"];
+    const datum = responseData;
+    //["content"];
     const rdatum = {"loader_on":false,"show_ans":false,"content":{"login":true,"msg":datum,"meta":{}}};
-    
+    //alert(datum["memory_token"]);
+    const cookie = new Cookies();
+    cookie.set("memory_token",datum["memory_token"],{path:'/'});
     setData(rdatum); // Store response data in state or do something with it
-    
+    //alert(cookie.get("memory_token"));
   } catch (error) {
     console.error('Error:', error);
   }
@@ -226,7 +232,8 @@ function XApp() {
   };
 
   const enavigate = answer_data["content"]["login"];
- /*
+ 
+  
   if(!enavigate)
   {
   
@@ -263,12 +270,14 @@ function XApp() {
 
    //<Snowflakes/>
   }
-  */
+  
+  
   
 
-  const user_data = answer_data["content"]["meta"];
-  //return(<Dash usr={user_data}/>);
-  return (<Xdash/>);
+  const user_data = answer_data["content"]["msg"]; 
+  //answer_data["content"]["meta"];
+  return(<Xdash usr={user_data}/>);
+  //return (<Xdash/>);
 }
 
 

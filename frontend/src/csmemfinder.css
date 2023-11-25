@@ -1,13 +1,40 @@
-.mem_recall{
-    color:azure;
-    width:100%;
-}
 
+
+/*
 .mem_in_box {
     bottom: 50px;
     
     height: 50px;
     width: 100%;
+}
+*/
+
+
+@media screen and (orientation: portrait)
+{
+
+    .mem_recall{
+        color:azure;
+        width:93vw;
+    }
+    .mem_recall table thead{
+        color:rgb(30, 212, 212);
+        
+    }
+
+.mem_input{
+    
+    height: 100%;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 10px;
+    width: 70vw;
+    letter-spacing: 0.2em;
+    background-color: rgb(9,39,46);
+    color: aliceblue;
+    /*box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);*/
+    box-shadow: 0px 0px 10px 2px black;
+    border-color:black;
 }
 
 .mem_outs
@@ -15,70 +42,183 @@
     height: 60vh;
    /* background-color: aqua;*/
     overflow-y: auto;
+    overflow-x: hidden;
     width: 100%;
-}
-@media screen and (orientation: portrait)
-{
-.mem_input{
-    
-    height: 100%;
-    border-radius: 20px;
-    padding: 20px;
-    /*margin-top: 10px;*/
-    width: 70vw;
-    letter-spacing: 0.2em;
-    background-color: rgb(9,39,46);
-    color: aliceblue;
-    box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);
-}
-}
-
-@media screen and (orientation: landscape)
-{
-.mem_input{
-    width: 500px;
-    height: 100%;
-    background-color: rgb(9,39,46);
-    border-radius: 20px;
-    padding: 20px;
-    /*margin-top: 10px;*/
-    letter-spacing: 0.2em;
-    color: aliceblue;
-    box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);
-}
+    box-shadow: 0px 0px 10px 2px black;
 }
 
 .xmembox{
     color: white;
     width: 80%;
-    text-align: right;
+    /*text-align: left;*/
     border:1px solid rgb(9,39,46);
     height:auto;
+    word-wrap: break-word;
+    /*
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 40px;
+    */
     padding: 20px;
-    font-weight: bold;
+    font-weight: light;
+    font-size:0.9em;
     box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
+
+.replymembox{
+    color: rgb(158, 249, 112);
+    width: 80%;
+    text-align: right;
+    border:1px solid rgb(9,39,46);
+    height:auto;
+    word-wrap: break-word;
+    /*
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 40px;
+    */
+    padding: 20px;
+    font-weight: light;
+    letter-spacing: 1px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size:0.9em;
+    box-shadow: 0px 0px 10px 2px rgb(186, 24, 24);
+    margin-left: 8px;
+    margin-right: 8px;
+}
+}
+
+
+
+
+@media screen and (orientation: landscape)
+{
+.mem_recall{
+    color:azure;
+    width:85vw;
+    
+}
+
+.buttom_in{
+    
+}
+
+/*
+.mem_table{
+    width: 85vw;
+    
+}
+*/
+/*
+.mem_recall table thead{
+        color:rgb(223, 233, 233);
+        letter-spacing: 0.8em;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    */
+
+.mem_input{
+    width: 500px;
+    /*height: ;*/
+    background-color: rgb(9,39,46);
+    border-color: black;
+    border-radius: 20px;
+    padding: 20px;
+    /*margin-top: 10px;*/
+    letter-spacing: 0.2em;
+    color: aliceblue;
+    /*box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);*/
+    box-shadow: 0px 0px 10px 2px black;
+    margin-top: 10px;
+    margin-left: 50px;
+    
+}
+
+.mem_outs
+{
+    height: 60vh;
+   /* background-color: aqua;*/
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    box-shadow: 0px 0px 10px 2px black;
+    border-color:black;
+}
+
+.xmembox{
+    color: white;
+    width: 90%;
+    text-align: left;
+    border:1px solid rgb(9,39,46);
+    height:auto;
+    /*
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 40px;
+    */
+    padding: 20px;
+    font-weight: light;
+    box-shadow: 0px 0px 8px 1px white;
+    /*rgb(36, 115, 106);*/
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 1px;
+    font-size:0.9em;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.replymembox{
+    color: rgb(158, 249, 112);
+    margin-left: 10px;
+    width: 90%;
+    /*width: 80%;*/
+    text-align: left;
+    border:1px solid rgb(9,39,46);
+    height:auto;
+    /*
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 40px;
+    */
+    padding: 20px;
+    font-weight: light;
+    letter-spacing: 1px;
+    font-size:0.9em;
+    font-family: 'Courier New', Courier, monospace;
+    
+    box-shadow: 0px 0px 10px 2px rgb(158, 249, 112);
+    /*rgb(186, 24, 24);*/
+}
+
+.findmembtn_div{
+    align-items: center;
+    /*width: 800px;*/
+}
+}
+
+
 
 .findMemButton {
     /*background-color: rgb(31, 31, 87);*/
     background-color: rgb(9,39,46);
     /* rgb(13, 13, 134);*/
-    width: 200px;
-    height: 40px;
+    
+    height: 60px;
     border-radius: 8px;
     text-align: center;
     border: 2px solid grey;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     text-decoration: solid;
     font-weight: bold;
     color:blanchedalmond;
     /* rgb(48, 48, 210);*/
     box-shadow: 0px 0px 10px 2px rgb(42, 3, 3);
+    
 
 }
 
@@ -105,4 +245,9 @@
   border-radius: 20px; /* Adjust the value to control the amount of rounding */
   width: 90%;
   content: "#";
+}
+
+.mem_input:focus{
+    box-shadow: 0px 0px 10px 2px rgb(36, 115, 106); 
+    outline: none;
 }
