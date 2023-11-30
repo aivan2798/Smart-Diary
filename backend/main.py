@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import json
-
+from bs4 import BeautifulSoup
 from workman import *
 
 app = FastAPI()
@@ -68,12 +68,27 @@ async def process(request: Request):
 	elif command == "buff_mem":
 					mtoken = cmd_data["memory_token"]
 					#request.cookies.get("memory_token")
-
+					print(mtoken)
 					token_stat = authToken(mtoken)
-
+					print("token okay")
 					if(token_stat==True):
-						my_prompt = gptEat(mtoken,cmd_data)
-						prompt_dta = handlePrompt(mtoken,my_prompt)
+						#my_prompt = gptEat(mtoken,cmd_data)
+						#print("\neating my prompt: ",my_prompt)
+						#prompt_dta = handlePrompt(mtoken,my_prompt)
+						made_anss = execPrompt(mtoken,cmd_data)
+						#print(f"\n\n\t\tanswers are: {made_ans}")
+						prompt_dta = ''
+						if len(made_anss) == 0:
+							tprompt_dta = {"ok": True, "content": "no content, please add a memory"}
+							return JSONResponse(content = tprompt_dta)
+						for made_ans in made_anss:
+							#mem_err = made_ans['content'].find("<mem_error_502>")
+							mem_err = -1
+							if mem_err == -1:
+								prompt_dta = made_ans
+								break
+						if len(prompt_dta) == 0:
+							prompt_dta == parseMem(made_anss[0])
 						if prompt_dta["ok"]==True:
 							return JSONResponse(content = prompt_dta)
 						else:
@@ -82,6 +97,27 @@ async def process(request: Request):
 					else:
 						res_err = {"content":"404 user not found please, reload", "status":404}
 						return JSONResponse(content = res_err)
+	elif command == "eat_url":
+					mtoken = cmd_data["memory_token"]
+		#request.cookies.get("memory_token"
+					print(mtoken)
+					token_stat = authToken(mtoken)
+					print("token okay")
+					if token_stat == True:
+						print("authenticated")
+						eat_stat = urlEater(mtoken,cmd_data)
+
+						if eat_stat == True:
+							tprompt_dta = {"ok":True,"content":"memory noted"}
+							return JSONResponse(content = tprompt_dta)
+						else:
+							err_data = {"ok":False,"content":"memory error"}
+							return JSONResponse(content = err_data)
+					else:
+						print("authentication failed")
+						res_err = {"content":"404 user not found please, reload", "status":404}
+						return JSONResponse(content = res_err)
+
 
 			#else:
 			#		err_data = {"content":"user failed"}

@@ -2,3 +2,5 @@ openai
 deta
 fastapi
 Jinja2
+langchain
+bs4

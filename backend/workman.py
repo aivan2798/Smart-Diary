@@ -1,7 +1,8 @@
 from detadb import *
 from datetime import date,datetime
 import openai
-import langman
+from bs4 import BeautifulSoup
+import langman,time
 #from dotenv import load_dotenv
 
 #load_dotenv()
@@ -18,6 +19,22 @@ def gen_db_id(name):
     return namex
 
 def awaddmem(cookie,mem_data):
+
+    title = mem_data["title"]
+    content = mem_data["content"]
+    tags = mem_data["tags"]
+    adate = date.today()
+    time = datetime.now().strftime("%H:%M:%S")
+
+    memory = f"use_title:'{title}' use_content:'{content}' use_tags:'{tags}' use_date:'{adate}' use_time:'{time}'"
+    memory_stat = addMemory(cookie,memory)
+
+    if(memory_stat==True):
+    	return {"ok":True,"content":"memory noted"}
+    else:
+    	return {"ok":False,"content":"memory error"}
+
+def rawaddmem(cookie,mem_data):
 
     title = mem_data["title"]
     content = mem_data["content"]
@@ -64,7 +81,7 @@ def xgptEat(cookie,json_std):
     }
     xmy_gpt["content"] = "from my memories answer this: "+str(qtn)
     my_gpt_msg.append(xmy_gpt)
-    #print(my_gpt_msg)
+    print(my_gpt_msg)
     return my_gpt_msg
 
 def gptEat(cookie,json_std):
@@ -76,7 +93,7 @@ def gptEat(cookie,json_std):
     time = datetime.now().strftime("%H:%M:%S")
 
     memory = f"{qtn} ref_date:'{adate}' ref_time:'{time}'"
-    my_gpt_msg = langman.total_recall(mems,qtn)
+    my_gpt_msg = langman.total_recall(mems,memory)
     #print(my_gpt_msg)
     return my_gpt_msg
 
@@ -112,3 +129,39 @@ def xhandlePrompt(token,prompt):
 
 def handlePrompt(token,prompt):
   return langman.askMem(prompt)
+
+
+def parseMem(memory_ans):
+  soup = BeautifulSoup(memory_ans,"xml")
+  mem_error = soup.find("mem_error_502")
+  return mem_error.text
+
+def execPrompt(mtoken,prompt):
+  my_prompts = gptEat(mtoken,prompt)
+  
+  prompts_dta = []
+  ctx = 0
+  for my_prompt in my_prompts:
+    print("\neating my prompt: ",my_prompt)
+    if ctx>0:
+      time.sleep(21)
+    prompt_dta = handlePrompt(mtoken,my_prompt)
+    prompts_dta.append(prompt_dta)
+    ctx = ctx+1
+  return prompts_dta
+
+def urlEater(mtoken,mem_data):
+    url_link = mem_data["content"]
+    #url_parts = url_link.split('/')
+    #url_title = url_link[len(url_parts)-1]
+    
+    url_sum = langman.eatUrl(url_link)
+    
+    if len(url_sum) > 0:
+      #xmem_data["title"] = url_title
+      #xmem_data["content"] = url_sum
+      #xmem_data["tags"] = ''
+      awaddmem(mtoken,url_sum)
+      return True
+    else:
+      return False
