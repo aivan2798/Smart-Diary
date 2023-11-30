@@ -9,6 +9,7 @@ import Button from '@mui/material-next/Button';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import SearchIcon from '@mui/icons-material/Search';
 import ReactLoading from 'react-loading'
+import { end_point } from './constants';
 //"https://cdn.skypack.dev/react-loading@2.0.3";
 
 function xrandom(max) {
@@ -53,7 +54,7 @@ function XSnowflakes() {
 
 async function xpostData(data,setData)
 {
-  const xurl = "/"
+  const xurl = end_point;
 
   const requestOptions = {
     method: 'POST',

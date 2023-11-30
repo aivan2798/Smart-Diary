@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import StarIcon from '@mui/icons-material/Star';
 import './App.css';
@@ -15,10 +15,11 @@ import ReactLoading from 'react-loading';
 import Cookies from 'universal-cookie';
 
 import Xdash from './xdash'
+import { end_point } from './constants';
 //import ReactLoading from "https://cdn.skypack.dev/react-loading@2.0.3";
 //import { Client } from 'appwrite';
-//const xurl = "http://192.168.1.151:8008/"
-const xurl = "/";
+const xurl = end_point;
+//const xurl = "/";
 async function postLoginFx(data,setData)
 {
   const requestOptions = {

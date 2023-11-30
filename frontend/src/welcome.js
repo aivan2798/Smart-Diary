@@ -2,7 +2,7 @@ import React from "react";
 import "./welcome.css";
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import AgricultureIcon from '@mui/icons-material/Agriculture';
-//import { FaBrain } from "react-icons";
+import { FaBrain } from "react-icons";
 
 export default function MainBoard(){
 

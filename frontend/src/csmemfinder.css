@@ -22,6 +22,18 @@
         
     }
 
+    .buttom_in{
+        display: flex;
+        box-shadow: 0px 0px 10px 2px black;
+        width: 80%;
+        background-color: rgb(9,39,46);
+        margin-top: 10px;
+        margin-left: 5px;
+        border-color: black;
+        border-radius: 20px;
+    }
+    
+
 .mem_input{
     
     height: 100%;
@@ -30,11 +42,13 @@
     margin-top: 10px;
     width: 70vw;
     letter-spacing: 0.2em;
-    background-color: rgb(9,39,46);
+    /*background-color: rgb(9,39,46);*/
     color: aliceblue;
     /*box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);*/
-    box-shadow: 0px 0px 10px 2px black;
-    border-color:black;
+    /*box-shadow: 0px 0px 10px 2px black;
+    border-color:black;*/
+    background-color: transparent;
+    border: transparent;
 }
 
 .mem_outs
@@ -62,12 +76,14 @@
     padding: 20px;
     font-weight: light;
     font-size:0.9em;
-    box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);
+    /*box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);*/
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 1px;
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
     margin-left: 8px;
     margin-right: 8px;
+    display: flex;
 }
 
 .replymembox{
@@ -87,9 +103,10 @@
     letter-spacing: 1px;
     font-family: 'Courier New', Courier, monospace;
     font-size:0.9em;
-    box-shadow: 0px 0px 10px 2px rgb(186, 24, 24);
+    box-shadow: 0px 0px 8\px 5px rgb(0, 0, 0);
     margin-left: 8px;
     margin-right: 8px;
+    display: flex;
 }
 }
 
@@ -105,7 +122,14 @@
 }
 
 .buttom_in{
-    
+    display: flex;
+    box-shadow: 0px 0px 10px 2px black;
+    width: 500px;
+    background-color: rgb(9,39,46);
+    margin-top: 10px;
+    margin-left: 50px;
+    border-color: black;
+    border-radius: 20px;
 }
 
 /*
@@ -114,28 +138,29 @@
     
 }
 */
-/*
-.mem_recall table thead{
+
+.mem_recall center b{
         color:rgb(223, 233, 233);
-        letter-spacing: 0.8em;
+        letter-spacing: 1em;
         font-family: 'Courier New', Courier, monospace;
+        
     }
-    */
+    
 
 .mem_input{
     width: 500px;
     /*height: ;*/
     background-color: rgb(9,39,46);
-    border-color: black;
+    border-color: transparent;
     border-radius: 20px;
     padding: 20px;
     /*margin-top: 10px;*/
     letter-spacing: 0.2em;
     color: aliceblue;
     /*box-shadow: 0px 0px 10px 2px rgb(36, 115, 106);*/
-    box-shadow: 0px 0px 10px 2px black;
-    margin-top: 10px;
-    margin-left: 50px;
+    /*box-shadow: 0px 0px 10px 2px black;*/
+    /*margin-top: 10px;*/
+    /*margin-left: 50px;*/
     
 }
 
@@ -148,38 +173,50 @@
     width: 100%;
     box-shadow: 0px 0px 10px 2px black;
     border-color:black;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
 }
 
 .xmembox{
     color: white;
-    width: 90%;
+    width: 92%;
     text-align: left;
-    border:1px solid rgb(9,39,46);
+    /*border:1px solid rgb(9,39,46);*/
     height:auto;
     /*
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 40px;
     */
+    border-radius: 10px;
     padding: 20px;
     font-weight: light;
-    box-shadow: 0px 0px 8px 1px white;
+    /*box-shadow: 0px 0px 8px 1px white;*/
+    box-shadow: 0px 0px 0px 3px black;
     /*rgb(36, 115, 106);*/
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 1px;
     font-size:0.9em;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    margin-left: 10px;
+    /*margin-bottom: 5px;
+    margin-top: 5px;*/
+    /*margin-left: 10px;*/
+    display: flex;
+}
+
+.xmembox div{
+    text-align: right;
 }
 
 .replymembox{
     color: rgb(158, 249, 112);
-    margin-left: 10px;
-    width: 90%;
+    /*margin-left: 10px;*/
+    display: flex;
+    flex-direction: row;
+    width: 92%;
     /*width: 80%;*/
     text-align: left;
-    border:1px solid rgb(9,39,46);
+    /*border:1px solid rgb(9,39,46);*/
     height:auto;
     /*
     border-top-left-radius: 20px;
@@ -188,11 +225,12 @@
     */
     padding: 20px;
     font-weight: light;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-size:0.9em;
     font-family: 'Courier New', Courier, monospace;
-    
-    box-shadow: 0px 0px 10px 2px rgb(158, 249, 112);
+    /*margin-top: 2px;*/
+    /*box-shadow: 0px 0px 10px 2px rgb(158, 249, 112);*/
+    box-shadow: 0px 0px 8px 5px black;
     /*rgb(186, 24, 24);*/
 }
 
@@ -206,30 +244,37 @@
 
 .findMemButton {
     /*background-color: rgb(31, 31, 87);*/
-    background-color: rgb(9,39,46);
+    background-color: transparent;
+    /* rgb(9,39,46);*/
     /* rgb(13, 13, 134);*/
     
-    height: 60px;
-    border-radius: 8px;
+    
+    width: 60px;
+    border-radius: 150%;
     text-align: center;
-    border: 2px solid grey;
+    /*border-left-color: 1px solid black;*/
+    /*2px solid grey;*/
     text-decoration: solid;
     font-weight: bold;
     color:blanchedalmond;
+    border: transparent;
+    /*margin-top: 15px;*/
     /* rgb(48, 48, 210);*/
-    box-shadow: 0px 0px 10px 2px rgb(42, 3, 3);
-    
+    /*box-shadow: 0px 0px 10px 2px rgb(42, 3, 3);*/
+    font-size: 1.5em;
+
 
 }
 
 .findMemButton:hover{
-    border:2px px solid black;
+    /*border:2px px solid black;*/
     /*5px solid rgb(13, 13, 134);*/
     /*rgb(13, 13, 134);*/
     
-    background-color: rgb(9,39,46);
+   /* background-color: rgb(9,39,46);*/
     /*rgb(48, 48, 210);*/
-    box-shadow: 0px 0px 10px 2px black; 
+    /*box-shadow: 0px 0px 10px 2px black; */
+    color:rgb(158, 249, 112);
  }
 
  .newtagsbox

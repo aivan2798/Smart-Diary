@@ -3,8 +3,10 @@ import './xdash.css'
 import SaveMemUI from "./guis";
 import Cookies from 'universal-cookie';
 import FindMemUI from "./memfinder";
+import SaveURLUI from "./urltrackUI";
 import MainBoard from "./welcome";
 import {BrowserRouter,Route,Routes,Link, NavLink, Outlet} from "react-router-dom";
+import { end_point } from "./constants";
 
 
 let active_set;
@@ -121,7 +123,38 @@ function CryptoTrackPB(btn_props)
     );
 }
 
+function URLTrackPB(btn_props)
+{
+    const text_name = btn_props.text;
+    let [is_crypto_track, setCTState] = useState(false);
 
+
+    const urlTrackUI = ()=>{
+
+        if (active_set!=null){
+            active_set(false);
+        }
+        
+        setCTState(true);
+        active_set = setCTState;
+       // setFMState((!is_find_mem));
+       // setCTState((!is_crypto_track));
+    }
+
+    if (is_crypto_track==true)
+    {
+    return (
+        <button className="pressed_pushButton" onClick={urlTrackUI}>
+            {text_name}
+        </button>
+    );
+    }
+    return (
+        <button className="pushButton" onClick={urlTrackUI}>
+            {text_name}
+        </button>
+    );
+}
 
 /*
 function findMemUI(event_obj)
@@ -152,7 +185,7 @@ function Layout()
                 <NavLink to="findmem"><FindMemPB text="FIND MEMORY"/></NavLink>
               </td>
               <td>
-                <CryptoTrackPB text="CRYPTO TRACK"/> 
+                <NavLink to="urlTrack"><URLTrackPB text="URL TRACK SUM"/></NavLink>
               </td>
             </tr>
           </table><br/>
@@ -178,6 +211,7 @@ export default function Xdash(xuser_data)
                    <Route index element={<MainBoard/>}/>
                    <Route path="savemem" element={<SaveMemUI/>}/>
                    <Route path="findmem" element={<FindMemUI/>}/>
+                   <Route path="urlTrack" element={<SaveURLUI/>}/>
                 </Route>
             </Routes>
             </div>
