@@ -8,10 +8,12 @@ import { ThemeProvider } from "@emotion/react";
 import Cookies from 'universal-cookie';
 import { end_point } from "./constants";
 
+
 async function xpostData(data,setData)
 {
   //const xurl = "/";
   const xurl = end_point;
+  
   
   const requestOptions = {
     method: 'POST',
@@ -46,12 +48,11 @@ function MemStatus(mem_stat_props) {
     
 }
 
-function SaveMemBtn(btn_props) {
+function SaveURLBtn(btn_props) {
    const [is_SM_clicked_body, changeSMClick] = useState({"loader_on":false,"show_ans":true,"content":''});
    //useState(false);
-   const ref_title = btn_props.title;
+   
    const ref_body = btn_props.body;
-   const ref_tags = btn_props.tags;
    const show_msg = is_SM_clicked_body["content"];;
 
    const is_SM_clicked = is_SM_clicked_body["loader_on"];
@@ -59,22 +60,22 @@ function SaveMemBtn(btn_props) {
     
     changeSMClick(!is_SM_clicked);
 
-      const mtitle = ref_title.current.value;
+      
       const mdata = ref_body.current.value;
-      const mtags = ref_tags.current.value;
+    
 
      
       const active_token = new Cookies().get("memory_token");
       const xcontent = {
         "memory_token": active_token,
         "nick_name":"mnick_name",
-        "title":mtitle,
+        "title":"URL",
         "content":mdata,
-        "tags":mtags
+        "tags":''
       };
   
       const content =  {
-          "cmd":"eat_mem",
+          "cmd":"eat_url",
           "content":xcontent
       };
       
@@ -108,7 +109,7 @@ function SaveMemBtn(btn_props) {
 }
 
 
-export default function SaveMemUI()
+export default function SaveURLUI()
 {
 
     /*const theme = createTheme({
@@ -123,9 +124,9 @@ export default function SaveMemUI()
       });
       */
 
-    const titleRef = useRef();
+
     const dataRef = useRef();
-    const tagsRef = useRef()
+
 
     const mnick_name = "nickname";
 
@@ -136,17 +137,17 @@ export default function SaveMemUI()
       setLoader({"loader_on":true,"show_ans":false,"content":"connecting..."})
       
       //nickRef.current.value;
-      const mtitle = titleRef.current.value;
+      
       const mdata = dataRef.current.value;
-      const mtags = tagsRef.current.value;
+      
 
      
   
       const xcontent = {
         "nick_name":"mnick_name",
-        "title":mtitle,
+        "title":"title",
         "content":mdata,
-        "tags":mtags
+        "tags":"url"
       };
   
       const content =  {
@@ -180,19 +181,10 @@ export default function SaveMemUI()
         <div className = "savemem_ui">
             
             <table>
-                <thead><center>KEEP YOUR MEMORIES HERE</center></thead><br/>
-                <tr>
-                    <td>
-                        <input className="mem_title" placeholder="Enter Memory Title" ref={titleRef}/><br/>
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <textarea className="mem_body" placeholder="Write the memory content" ref={dataRef}></textarea>
-                </tr>
+                <thead><center>KEEP YOUR URL MEMORIES HERE INSTANTLY</center></thead><br/>
                 <tr>
                 <td>
-                <input className="xxtagbox" placeholder="Enter any tags here" ref={tagsRef}/>
+                <input className="xxtagbox" placeholder="Paste the URL HERE" ref={dataRef}/>
                 </td>
                 <td>
                     
@@ -200,7 +192,7 @@ export default function SaveMemUI()
                 </tr>
                 <tr>
                     <center>
-                         <SaveMemBtn title={titleRef} body={dataRef} tags={tagsRef}/>
+                         <SaveURLBtn body={dataRef}/>
                     </center>
                 </tr>
             </table>

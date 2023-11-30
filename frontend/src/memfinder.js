@@ -3,6 +3,11 @@ import "./csmemfinder.css";
 import Cookies from "universal-cookie";
 import ReactLoading from "react-loading";
 import { TextField, TextareaAutosize } from "@mui/material";
+import ScrollToBottom from 'react-scroll-to-bottom';
+import { FaBrain,FaFaceLaughBeam } from "react-icons/fa6";
+import {ImPacman } from "react-icons/im";
+import { BsWechat } from "react-icons/bs";
+import { end_point } from "./constants";
 let memories = [];
 
 /*
@@ -37,8 +42,8 @@ export default function FindMemUI() {
 
 async function xpostData(data,setData)
 {
-  const xurl = "/";
- // const xurl = "http://192.168.1.151:8008/";
+  //const xurl = "/";
+  const xurl = end_point;
   
   const requestOptions = {
     method: 'POST',
@@ -82,7 +87,7 @@ function FindMemBtn(btn_props) {
     return(
      
      <button className="findMemButton" onClick={memSaver}>
-                    CHAT MEMORY
+                    ?<BsWechat/>
     </button>
      
     );
@@ -90,7 +95,7 @@ function FindMemBtn(btn_props) {
      return (
          
         <button className="findMemButton" onClick={memSaver}>
-             LOADING...&nbsp;<ReactLoading type="bars" height={20} width={20}/>
+             <ReactLoading type="bars" height={35} width={35}/>
          </button>
      );
     }
@@ -103,7 +108,7 @@ function MemoBox(mem_props){
     
     return(
         <div className="xmembox">
-            {mem_txt}
+            <FaFaceLaughBeam/>&nbsp;&nbsp;{mem_txt}
         </div>
     );
 
@@ -114,7 +119,7 @@ function ReplyBox(mem_props){
     
     return(
         <div className="replymembox">
-            {mem_txt}
+            <FaBrain/>&nbsp;&nbsp;<div>{mem_txt}</div>
         </div>
     );
 
@@ -126,6 +131,9 @@ export default function FindMemUI() {
     
     let [ans_state, saveMem] = useState(false);
     const ask_ref = useRef();
+    //const mem_outs_ref = useRef();
+
+    //mem_outs_ref.current?.scrollIntoView({behavior:"smooth",block:"end"});
     /*
     const memSaver = ()=>{
         //memories.current.push
@@ -137,6 +145,7 @@ export default function FindMemUI() {
     const memSaver = useCallback(()=>{
         //memories.current.push
        const ask_text = ask_ref.current.value;
+       
        const cookie = new Cookies().get("memory_token");
        const xcontent = {
         "memory_token": cookie,
@@ -165,9 +174,9 @@ export default function FindMemUI() {
     
     <div className = "mem_recall">
         <center><b>RECALL YO MEMORIES</b></center>
-        <div className="mem_outs">
+        <ScrollToBottom className="mem_outs">
         {memories}
-        </div>
+        </ScrollToBottom>
         <div className="buttom_in">
         <textarea className="mem_input" placeholder="what do you want to remember?" ref={ask_ref}></textarea><br/>
         <FindMemBtn onClick={memSaver} ans_state={ans_state}/>
@@ -195,10 +204,12 @@ function XFindMemUI() {
        //saveMem(true);
     };
 */
+    
     const memSaver = useCallback(()=>{
         //memories.current.push
        const ask_text = ask_ref.current.value;
        const cookie = new Cookies().get("memory_token");
+       
        const xcontent = {
         "memory_token": cookie,
         "query":ask_text,
